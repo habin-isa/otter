@@ -19,7 +19,7 @@ https://otterlenghi.herokuapp.com/
 - \$ git clone https://github.com/habin-isa/otter.git
 - \$ cd otter
 - \$ yarn
-- \$ yarn start
+- \$ yarn run dev
 
 - \$ yarn test
 
