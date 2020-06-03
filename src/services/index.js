@@ -6,6 +6,6 @@ export const postUser = async (user) => {
     name: user.name,
     email: user.email
   });
-  console.log(response.error);
+  console.log(response);
   return response;
 };

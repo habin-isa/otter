@@ -1,9 +1,9 @@
 import React from 'react';
 import * as S from './styles';
 import Form from './form';
-import { func } from 'prop-types';
+import { func, bool } from 'prop-types';
 
-const InvitationWindow = ({ handleFormSubmit, signUpSuccess, handleOkClick }) => {
+const InvitationWindow = ({ handleFormSubmit, signUpSuccess, handleOkClick, submissionError, invalidEmail }) => {
   return (
     <S.Wrapper>
       {signUpSuccess === true ? (
@@ -13,18 +13,28 @@ const InvitationWindow = ({ handleFormSubmit, signUpSuccess, handleOkClick }) =>
           <S.Button onClick={handleOkClick}>OK</S.Button>
         </S.Success>
       ) : (
-        <Form handleFormSubmit={handleFormSubmit} />
+        <Form handleFormSubmit={handleFormSubmit} submissionError={submissionError} invalidEmail={invalidEmail} />
       )}
     </S.Wrapper>
   );
 };
 
 InvitationWindow.propTypes = {
-  handleFormSubmit: func
+  handleFormSubmit: func,
+  signUpSuccess: bool,
+  signUpSuccess: bool,
+  handleOkClick: func,
+  submissionError: bool,
+  invalidEmail: bool
 };
 
 InvitationWindow.defaultProps = {
-  handleFormSubmit: () => {}
+  handleFormSubmit: () => {},
+  signUpSuccess: false,
+  signUpSuccess: false,
+  handleOkClick: () => {},
+  submissionError: false,
+  invalidEmail: false
 };
 
 export default InvitationWindow;

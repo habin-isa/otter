@@ -14,6 +14,8 @@ import { postUser } from '../../services';
 const App = () => {
   const [modalIsOpen, setIsOpen] = useState(false);
   const [signUpSuccess, setSignUpSuccess] = useState(false);
+  const [submissionError, setSubmissionError] = useState(false);
+  const [invalidEmail, setInvalidEmail] = useState(false);
   const customStyles = {
     content: {
       top: '50%',
@@ -30,22 +32,31 @@ const App = () => {
   };
 
   const handleButtonClick = () => {
+    // setInvalidEmail(false);
     setIsOpen(true);
     setSignUpSuccess(false);
   };
 
-  const handleFormSubmit = async (user) => {
-    console.log('user:', user);
+  const validateEmail = (user) => {
+    if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(user.email)) {
+      handlePostUser(user);
+    } else {
+      setInvalidEmail(true);
+    }
+  };
+
+  const handleFormSubmit = (user) => {
+    validateEmail(user);
+  };
+
+  const handlePostUser = async (user) => {
     try {
       const response = await postUser(user);
-      console.log(response);
       if (response.status === 200) {
         setSignUpSuccess(true);
       }
     } catch (error) {
-      if (error.status === 500) {
-        console.log('puppi error');
-      }
+      setSubmissionError(true);
       console.log('error posting user');
     } finally {
       console.log('postUser called');
@@ -71,6 +82,8 @@ const App = () => {
               handleFormSubmit={handleFormSubmit}
               signUpSuccess={signUpSuccess}
               handleOkClick={closeModal}
+              submissionError={submissionError}
+              invalidEmail={invalidEmail}
             />
           </Modal>
         </div>

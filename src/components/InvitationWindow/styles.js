@@ -81,3 +81,11 @@ export const SuccessTitle = styled.div`
 export const SuccessSubtitle = styled.div`
   margin-top: 30px;
 `;
+
+export const SubmissionFailed = styled.span`
+  color: red;
+`;
+
+export const SubmitContainer = styled.div`
+  text-align: center;
+`;
