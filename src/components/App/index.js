@@ -1,21 +1,59 @@
-import React from 'react';
+import React, { useState } from 'react';
 import * as S from './styles';
 import Header from '../Header';
+import PageTitle from '../PageTitle';
 import HomeContainer from '../HomeContainer';
 import Footer from '../Footer';
-import OtterIcon from '../../assets/otter.png';
-// import { string } from 'prop-types';
+import Modal from 'react-modal';
 
 const App = () => {
+  const [modalIsOpen, setIsOpen] = useState(false);
+  const customStyles = {
+    content: {
+      top: '50%',
+      left: '50%',
+      right: 'auto',
+      bottom: 'auto',
+      marginRight: '-50%',
+      transform: 'translate(-50%, -50%)'
+    }
+  };
+
+  // const afterOpenModal = () => {
+  //   // references are now sync'd and can be accessed.
+  //   subtitle.style.color = '#f00';
+  // };
+
+  const closeModal = () => {
+    setIsOpen(false);
+  };
+
+  const handleButtonClick = () => {
+    setIsOpen(true);
+  };
+
   return (
     <S.Wrapper>
       <Header />
       <S.MainContainer>
-        <S.IconContainer>
-          <S.Icon src={OtterIcon} alt="otter-icon" />
-          <S.Title>Otter</S.Title>
-        </S.IconContainer>
-        <HomeContainer />
+        <PageTitle />
+        <HomeContainer handleClick={handleButtonClick} />
+        <div>
+          <Modal
+            isOpen={modalIsOpen}
+            // onAfterOpen={afterOpenModal}
+            onRequestClose={closeModal}
+            style={customStyles}
+            contentLabel="Example Modal"
+            ariaHideApp={false}
+          >
+            <button onClick={closeModal}>close</button>
+            <div>I am a modal</div>
+            <form>
+              <input />
+            </form>
+          </Modal>
+        </div>
       </S.MainContainer>
       <Footer />
     </S.Wrapper>
@@ -23,15 +61,3 @@ const App = () => {
 };
 
 export default App;
-
-// If props were drilled into App component
-// E.g. const App = ({ propName, propTwo })
-
-// App.propTypes = {
-//   propName: string,
-//   propTwo: string.isRequired
-// };
-
-// App.defaultProps = {
-//   propName: 'Kimmy'
-// };

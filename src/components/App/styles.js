@@ -7,8 +7,6 @@ export const Wrapper = styled.div`
 export const MainContainer = styled.div`
   display: flex;
   width: 100%;
-  align-items: center;
-  justify-content: center;
 `;
 
 export const IconContainer = styled.div`

@@ -4,7 +4,6 @@ export const Wrapper = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
-  height: -webkit-fill-available;
   position: relative;
   align-items: center;
   background: #d1e7ff;
@@ -28,9 +27,9 @@ export const Subtitle = styled.div`
 export const Button = styled.button`
   background: white;
   width: 200px;
-  height: 30px;
+  height: 50px;
   border-radius: 10px;
-  font-size: 15px;
+  font-size: 20px;
   color: #333333;
   border: none;
   margin-top: 40px;

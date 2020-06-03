@@ -1,27 +1,23 @@
 import React from 'react';
 import * as S from './styles';
-// import { string } from 'prop-types';
+import { func } from 'prop-types';
 
-const HomeContainer = () => {
+const HomeContainer = ({ handleClick }) => {
   return (
     <S.Wrapper>
       <S.Title>The new way to happiness is through Otter!</S.Title>
       <S.Subtitle>Be the first to know when we launch</S.Subtitle>
-      <S.Button>Request an invite</S.Button>
+      <S.Button onClick={handleClick}>Request an invite</S.Button>
     </S.Wrapper>
   );
 };
 
 export default HomeContainer;
 
-// If props were drilled into App component
-// E.g. const App = ({ propName, propTwo })
+HomeContainer.propTypes = {
+  handleClick: func
+};
 
-// App.propTypes = {
-//   propName: string,
-//   propTwo: string.isRequired
-// };
-
-// App.defaultProps = {
-//   propName: 'Kimmy'
-// };
+HomeContainer.defaultProps = {
+  handleClick: () => {}
+};
