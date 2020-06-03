@@ -26,5 +26,9 @@ export const Title = styled.div`
 `;
 
 export const Icon = styled.img`
-  width: 60px;
+  width: 20px;
+  &:hover {
+    cursor: pointer;
+    opacity: 0.8;
+  }
 `;

@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import * as S from './styles';
 import Header from '../Header';
-import PageTitle from '../PageTitle';
+import TitleContainer from '../TitleContainer';
+import InvitationWindow from '../InvitationWindow';
 import HomeContainer from '../HomeContainer';
 import Footer from '../Footer';
 import Modal from 'react-modal';
+import CloseIcon from '../../assets/close.png';
 
 const App = () => {
   const [modalIsOpen, setIsOpen] = useState(false);
@@ -19,11 +21,6 @@ const App = () => {
     }
   };
 
-  // const afterOpenModal = () => {
-  //   // references are now sync'd and can be accessed.
-  //   subtitle.style.color = '#f00';
-  // };
-
   const closeModal = () => {
     setIsOpen(false);
   };
@@ -36,22 +33,19 @@ const App = () => {
     <S.Wrapper>
       <Header />
       <S.MainContainer>
-        <PageTitle />
+        <TitleContainer />
         <HomeContainer handleClick={handleButtonClick} />
         <div>
           <Modal
             isOpen={modalIsOpen}
-            // onAfterOpen={afterOpenModal}
             onRequestClose={closeModal}
             style={customStyles}
             contentLabel="Example Modal"
             ariaHideApp={false}
           >
-            <button onClick={closeModal}>close</button>
-            <div>I am a modal</div>
-            <form>
-              <input />
-            </form>
+            <S.Icon src={CloseIcon} alt="close-icon" onClick={closeModal} />
+            {/* if form submitted show invitationWindow submitted=true */}
+            <InvitationWindow />
           </Modal>
         </div>
       </S.MainContainer>

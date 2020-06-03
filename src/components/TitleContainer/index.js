@@ -3,13 +3,13 @@ import OtterIcon from '../../assets/otter.png';
 
 import './styles.css';
 
-const PageTitle = () => {
+const TitleContainer = () => {
   return (
     <div className="container">
       <h1>
         <span className="animation">
           <span className="first">
-            <img className="icon" src={OtterIcon} />
+            <img className="icon" src={OtterIcon} alt="otter-icon" />
           </span>
           <span className="layer">
             <span className="second">Otter</span>
@@ -20,4 +20,4 @@ const PageTitle = () => {
   );
 };
 
-export default PageTitle;
+export default TitleContainer;
