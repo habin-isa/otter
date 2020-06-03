@@ -5,8 +5,14 @@
 - User arrives onto landing page
 - User clicks request invite button
 - User fills in form with name and email (validation for fields: all fields required, email validation)
-- User clicks submits and POST request is sent with new user in params
-- Failed API responses render error message
+- User clicks submit and POST request is sent with new user in params
+- Failed API responses render custom error messages
+
+### Use the app
+
+https://otterlenghi.herokuapp.com/
+
+![alt text](/src/assets/preview.png 'Otter Preview')
 
 ### To run the project
 
