@@ -16,7 +16,7 @@ const Form = ({ handleFormSubmit, submissionError, invalidEmail }) => {
         <S.InputContainer>
           <S.Label>Full name</S.Label>
           {errors.name && <S.Error>This field is required</S.Error>}
-          <S.Input name="name" ref={register({ required: true, maxLength: 20 })} />
+          <S.Input name="name" ref={register({ required: true, maxLength: 20, minLength: 3 })} />
         </S.InputContainer>
 
         <S.InputContainer>
