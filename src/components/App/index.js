@@ -38,6 +38,7 @@ const App = () => {
   };
 
   const validateEmail = (user) => {
+    // eslint-disable-next-line
     if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(user.email)) {
       handlePostUser(user);
     } else {

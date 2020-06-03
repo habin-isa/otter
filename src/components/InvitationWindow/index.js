@@ -22,7 +22,6 @@ const InvitationWindow = ({ handleFormSubmit, signUpSuccess, handleOkClick, subm
 InvitationWindow.propTypes = {
   handleFormSubmit: func,
   signUpSuccess: bool,
-  signUpSuccess: bool,
   handleOkClick: func,
   submissionError: bool,
   invalidEmail: bool
@@ -30,7 +29,6 @@ InvitationWindow.propTypes = {
 
 InvitationWindow.defaultProps = {
   handleFormSubmit: () => {},
-  signUpSuccess: false,
   signUpSuccess: false,
   handleOkClick: () => {},
   submissionError: false,
